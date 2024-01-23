@@ -1,0 +1,16 @@
+.movieCarrousel {
+    margin-bottom: 30px;
+}
+
+.movieCarrousel h2 {
+    margin: 0 0 0 30px;
+}
+
+.movieCarrousel--listarea {
+    overflow-x: hidden;
+}
+
+.movieCarrousel--item {
+    display: inline-block;
+}
+
