@@ -8,9 +8,26 @@
 
 .movieCarrousel--listarea {
     overflow-x: hidden;
+    padding-left: 30px;
+}
+
+.movieCarrousel--list {
+    width: 9999999px;
 }
 
 .movieCarrousel--item {
     display: inline-block;
+    width: 150px;
+    cursor: pointer;
+}
+
+.movieCarrousel--item img {
+    width: 100%;
+    transform: scale(0.9);
+    transition: all ease 0.2s;
+}
+
+.movieCarrousel--item img:hover {
+    transform: scale(1);
 }
 

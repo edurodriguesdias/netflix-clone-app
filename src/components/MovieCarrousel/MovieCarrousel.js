@@ -4,7 +4,6 @@ import './MovieCarrousel.css'
 const TMDB_BASE_URI='https://themoviedb.org'
 
 function MovieCarrousel({sectionTitle, movies}) {
-    console.log(movies)
     return (
         <div className="movieCarrousel">
             <h2>{sectionTitle}</h2>

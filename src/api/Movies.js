@@ -22,4 +22,8 @@ async function getMovies() {
     ]
 }
 
-export default getMovies
+async function getMovieById(movieId, movieType) {
+    return await getMovieData(`/3/${movieType}/${movieId}`)
+}
+
+export { getMovies, getMovieById }
