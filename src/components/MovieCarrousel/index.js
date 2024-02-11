@@ -1,7 +1,5 @@
 import React from "react";
-import './MovieCarrousel.css'
-
-const TMDB_BASE_URI='https://themoviedb.org'
+import './style.css'
 
 function MovieCarrousel({sectionTitle, movies}) {
     return (
@@ -11,7 +9,7 @@ function MovieCarrousel({sectionTitle, movies}) {
                 <div className="movieCarrousel--list">
                     { movies.results.length > 0 && movies.results.map((movie, key) => (
                         <div key={key} className="movieCarrousel--item">
-                            <img src={ `${TMDB_BASE_URI}/t/p/w300${movie.poster_path}` } alt={movie.title} key={key}/>
+                            <img src={ `${process.env.REACT_APP_TMDB_IMAGE_BASE_URI}/t/p/w300${movie.poster_path}` } alt={movie.title} key={key}/>
                         </div>
                     )) }
                 </div>
