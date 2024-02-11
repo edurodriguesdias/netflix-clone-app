@@ -1,4 +1,4 @@
-# Netflix UI Clone Study
+# Netflix UI Clone Study - WIP
 This repository contains a study project aimed at cloning the user interface (UI) of Netflix. The goal of this project is to practice front-end development skills by recreating the look and feel of the Netflix website using reactjs.
 
 ## Project Overview
