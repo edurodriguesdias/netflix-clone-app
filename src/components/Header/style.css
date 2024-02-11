@@ -1,0 +1,37 @@
+header {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo--image {
+    margin: 20px 0 0 35px;
+}
+
+.user--image {
+    margin: 20px 25px 0 0;
+}
+
+.logo--image img {
+    height: 50px;
+}
+
+.user--image img{
+    height: 50px;
+    border-radius: 4px;
+}
+
+.transparent {
+    background: none;
+    transition: 0.7s;
+}
+
+.dark-scroll {
+    background: rgba(0,0,0,0.7);
+    transition: 0.7s;
+}

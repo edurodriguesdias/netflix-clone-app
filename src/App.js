@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 import './App.css';
 
 /**Components */
-import MovieCarrousel from "./components/MovieCarrousel/MovieCarrousel";
-import FeaturedMovies from "./components/FeaturedMovies/FeaturedMovies";
+import MovieCarrousel from "./components/MovieCarrousel";
+import FeaturedMovies from "./components/FeaturedMovies";
+import Header from "./components/Header";
 
 /** API */
 import {getMovies, getMovieById} from "./api/Movies";
 
 function App() {
   let [movieList, setMovieList] = useState([]);
-
   let [featuredMovieData, setFeaturedMovieData] = useState(null)
+  let [darkScroll, setDarkScroll] = useState()
 
   useEffect(() => {
     const listMovies = async () => {
@@ -29,9 +30,25 @@ function App() {
     listMovies()
   }, [])
 
+  useEffect(() => {
+    const scrollListener = () => {
+      if (window.scrollY > 3) {
+        setDarkScroll(true);
+      } else {
+        setDarkScroll(false);
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener);
+
+    return () => {
+      window.removeEventListener('scroll', scrollListener)
+    }
+  }, []);
+
   return (
     <div className="page">
-
+      <Header darkScroll={darkScroll} />
       { featuredMovieData && <FeaturedMovies item={featuredMovieData} /> }
 
       <section className="lists">

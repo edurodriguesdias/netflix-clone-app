@@ -1,10 +1,8 @@
 import React from "react";
-import './FeaturedMovies.css'
+import './style.css'
 
-const TMDB_BASE_URI='https://themoviedb.org'
-
+// eslint-disable-next-line 
 export default ({item}) => {
-    console.log(item)
 
     let labelSeasons = 'temporadas'
     let labelSeasonsNumber = item.seasons.length
@@ -14,7 +12,7 @@ export default ({item}) => {
     let genres = item.genres.map((item) => {
         return item.name
     });
-
+    
     if (item.seasons.length === 1) {
         labelSeasons = 'episódios'
         labelSeasonsNumber = item.seasons[0].episode_count
@@ -24,12 +22,12 @@ export default ({item}) => {
         <section className="featured" style={{
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backgroundImage: `url(${TMDB_BASE_URI}/t/p/original${item.backdrop_path})`
+            backgroundImage: `url(${process.env.REACT_APP_TMDB_IMAGE_BASE_URI}/t/p/original${item.backdrop_path})`
         }}>
             <div className="featured--vertical">
                 <div className="featured--horizontal">
                     <div className="featured--name">{item.name}</div>
-                    <div className="featured-infos">
+                    <div className="featured--infos">
                         <div className="featured--ranking">
                             { Math.round(item.vote_average) * 10 }% relevante
                         </div>
@@ -39,16 +37,20 @@ export default ({item}) => {
                         <div className="featured--seasons">
                             {labelSeasonsNumber} {labelSeasons}
                         </div>
-                        <div className="featured--description">{ item.overview }</div>
-                        <div className="featured--genres">
-                            genres.forEach(name => {
-                                
-                            });
-                            Genêros: {genres.join(' • ')}
+                    </div>
+
+                    <div className="featured--description">
+                        <div className="featured--description">
+                            {`${item.overview.substring(0, 200)}...`}
                         </div>
+                        <div className="featured--genres">
+                            <p>{genres.join(', ')}</p>
+                        </div>                        
+                    </div>
+                    <div className="featured--action">
                         <div className="featured--buttons">
-                            <a href="">Assistir</a>
-                            <a href="">Mais informações</a>
+                            <a className="featured--watchbutton" href="http://google.com">Assistir</a>
+                            <a className="featured--moreinfobutton"href="http://google.com">Mais informações</a>
                         </div>
                     </div>
                 </div>

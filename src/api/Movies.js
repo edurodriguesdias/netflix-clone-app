@@ -1,14 +1,11 @@
-const TMDB_BASE_URI='https://api.themoviedb.org'
-const TMDB_API_KEY="24ccad2030c7b5e4ca6400fe738e838a"
-
 const getMovieData = async (path) => {
-    const req = await fetch(`${TMDB_BASE_URI}${path}?language=pt-BR&api_key=${TMDB_API_KEY}`)
-    return await req.json();
+    const req = await fetch(`${process.env.REACT_APP_TMDB_BASE_URI}${path}?language=pt-BR&api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+    return await req.json()
 }
 
 async function getMovies() {
     return [
-        /** CATEGORIAS */
+        /** CATEGORIES */
         {
             slug: 'original',
             title: 'Originais do Netflix',
